@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/christopher/Documents/Juridico/Juribot/aijus_prod_v01/src/main/scala/aijusProd/MainStringMatch.scala:57:39: identifier expected but '.' found.[0m
+[0m[[0m[31merror[0m] [0m[0m        (ocupation, JaroWinklerMetric..compare(input, ocupation).getOrElse(Double).asInstanceOf[Double])[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
