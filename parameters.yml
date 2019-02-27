@@ -1,0 +1,98 @@
+---
+filesPath:
+        input: "aijusProd/database/ETLtrabalhista.csv"
+        output: "aijusProd/output/prediction/output.csv"
+        outputPerformance: "aijusProd/output/performance/"
+
+filesInfo:
+        type: csv
+        header: true
+        delimiter: "|"
+        quote: "\""
+        inferSchema: true
+
+modelsID:
+        JudgmentPropensity: Judgment Propensity
+        ProcessDuration: Process Duration Model
+        Sentence: Sentence Model
+        AgreementPropensity: Agreement Propensity Model
+        SentenceValue: Sentence Value Model
+        ThesesAssociation: Theses Association
+
+methods:
+        JudgmentPropensity: rfClassifier
+        ProcessDuration: rfRegression
+        Sentence: rfClassifier
+        AgreementPropensity: rfClassifier
+        SentenceValue: rfRegression
+
+hyperparameters:
+        maxDepth: 50
+        mtry: 100
+        ntrees: 500
+        maxBins: 100
+        maxIter: 1000
+        minInfoGain: 0.001
+        learnRate: 0.001
+        kernel: radial
+        family: binomial
+        link: Logit
+
+outputColumnNames:
+        JudgmentPropensity: outputMod1
+        ProcessDuration: outputMod2
+        Sentence: label_mod3
+        AgreementPropensity: label_mod4
+        SentenceValue: outputMod5
+        ProbabilityJudgment: prob_mod1
+        ProbabilitySentence: prob_mod3
+        ProbabilityAgreement: prob_mod4
+
+sparkIternalColumnNames:
+        featuresName: features
+        scaledFeaturesName: scaledFeatures
+        categoricalIndexedName: categoryIndex
+
+suffixes:
+        inputedSuffix: _inputed
+        vectorSuffix: _vec
+        scaledSuffix: _scaled
+        indexSuffix: _index
+        unscaledSuffix: _unscaled
+        converterSuffix: _converted
+        featureCol: features
+        dependentVecCol: dependentVec
+        dependentScaledVecCol: dependentScaledVec
+        categoricalIndexVecCol: categoricalIndexVec
+
+independentVariables:
+        JudgmentPropensity: processou
+        ProcessDuration: tempo_processo
+        Sentence: sentenca
+        AgreementPropensity: sentenca
+        SentenceValue: valor_provisao_wm_provavel
+        ThesesAssociation: objeto
+
+probabilityClass:
+        JudgmentPropensity: T
+        Sentence: Procedente
+        AgreementPropensity: Acordo
+
+filterLabels: {
+        JudgmentPropensity: [Procedente, Improcedente, Acordo],
+        Sentence: [Procedente, Improcedente],
+        AgreementPropensity: [Procedente, Acordo],
+        Regression: [Procedente, Improcendente, Acordo]
+}
+
+dependentVariables: {
+        numerical: [diferenca, pagamentosvalores_realizados, somatorio_dos_pedidos, tempo_processo, valor_da_causa, valor_provisao_wm_provavel],
+        categorical: [advogado_interno_walmart, bandeira, cargofuncao, comarca, escritorio, formato, instancia, n_unidade, nova_clt, objetotese, regional, tipo_de_acao, tipo_de_contingencia, uf]
+}
+
+performanceMetrics: {
+        regression: [rmse],
+        multiClassification: [f1, weightedPrecision, weightedRecall, accuracy],
+        binaryClassification: [areaUnderROC, areaUnderPR]
+}
+

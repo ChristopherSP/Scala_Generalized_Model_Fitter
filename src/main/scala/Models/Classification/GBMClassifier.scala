@@ -1,12 +1,11 @@
 package Models.Classification
 
 //Import Project classes
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.classification.GBTClassifier
 import org.apache.spark.ml.PipelineModel
-
+import com.semantix.aijusProd.VariablesYAML._
 // Constructs an object to apply gradient boosting model for a classification problem
 class GBMClassifier extends Classification {
 

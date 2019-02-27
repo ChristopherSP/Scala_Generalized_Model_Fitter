@@ -1,12 +1,11 @@
 package Models.Classification
 
 //Import Project classes
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.classification.LinearSVC
 import org.apache.spark.ml.PipelineModel
-
+import com.semantix.aijusProd.VariablesYAML._
 // Constructs an object to apply support vector machine model for a classification problem
 class SVM extends Classification {
 

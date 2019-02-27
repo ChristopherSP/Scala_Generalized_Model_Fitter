@@ -2,7 +2,6 @@ package PipeObjects
 
 //Import Project classes
 import Models._
-import aijusProd.Variables._
 
 //Import Java packages
 import java.io.PrintWriter
@@ -16,7 +15,7 @@ import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.ml.util._
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, Dataset}
-
+import com.semantix.aijusProd.VariablesYAML._
 //This Class construct and train a model that determines how long a law suit will last. It also applies the fitted
 // model transforming a dataset and evaluates its performance.
 class ProcessDurationModel(override val uid: String) extends Transformer with MLWritable with
@@ -36,7 +35,11 @@ class ProcessDurationModel(override val uid: String) extends Transformer with ML
 
   override def transform(df: Dataset[_]): DataFrame = {
 //    Model Constructor
-    val model = ModelGenerator.getMethod(method = methodMod2)
+
+    println("####################\n\n####################\nInput model 2\n####################\n####################")
+    df.printSchema()
+
+    val model = ModelGenerator.getMethod(methodMod2)
       .setDF(df.toDF())
       .setCategoricalVariables(categoricalVariables)
       .setNumericalVariables(numericalVariables)
@@ -66,7 +69,7 @@ class ProcessDurationModel(override val uid: String) extends Transformer with ML
 //    Gets the time that the code runned and generates a folder with the date in order to save a historic log of
 // models and performances.
     val date = Calendar.getInstance().getTime
-    val dateFormat = new SimpleDateFormat("YYYY-MM-dd")
+    val dateFormat = new SimpleDateFormat("YYYYMMddHHmmss")
     val dateFormated = dateFormat.format(date)
 
     Directory(outputPerformanceDir + dateFormated).createDirectory()
@@ -77,6 +80,9 @@ class ProcessDurationModel(override val uid: String) extends Transformer with ML
       close()
     }
 
+//    output.repartition(280)
+    output.persist()
+    output.count()
     output
   }
 

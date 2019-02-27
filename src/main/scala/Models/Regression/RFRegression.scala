@@ -1,12 +1,11 @@
 package Models.Regression
 
 //Import Project classes
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.regression.RandomForestRegressor
 import org.apache.spark.ml.PipelineModel
-
+import com.semantix.aijusProd.VariablesYAML._
 // Constructs an object to apply random forest model for a regression problem
 class RFRegression extends Regression{
 

@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.fasterxml.jackson.dataformat.yaml
+Bnd-LastModified: 1522081950642
+Build-Jdk: 1.8.0_162
+Built-By: tatu
+Bundle-Description: Support for reading and writing YAML-encoded data 
+ via Jackson abstractions.
+Bundle-DocURL: https://github.com/FasterXML/jackson-dataformats-text
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Jackson-dataformat-YAML
+Bundle-SymbolicName: com.fasterxml.jackson.dataformat.jackson-dataform
+ at-yaml
+Bundle-Vendor: FasterXML
+Bundle-Version: 2.9.5
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.fasterxml.jackson.dataformat.yaml;version="2.9.5";
+ uses:="com.fasterxml.jackson.core,com.fasterxml.jackson.core.base,com
+ .fasterxml.jackson.core.format,com.fasterxml.jackson.core.io,com.fast
+ erxml.jackson.core.util,com.fasterxml.jackson.databind,org.yaml.snake
+ yaml,org.yaml.snakeyaml.emitter,org.yaml.snakeyaml.error,org.yaml.sna
+ keyaml.events,org.yaml.snakeyaml.parser,org.yaml.snakeyaml.resolver",
+ com.fasterxml.jackson.dataformat.yaml.snakeyaml.error;version="2.9.5"
+ ;uses:="com.fasterxml.jackson.core,com.fasterxml.jackson.dataformat.y
+ aml,org.yaml.snakeyaml.error"
+Implementation-Build-Date: 2018-03-26 16:24:46+0000
+Implementation-Title: Jackson-dataformat-YAML
+Implementation-Vendor: FasterXML
+Implementation-Vendor-Id: com.fasterxml.jackson.dataformat
+Implementation-Version: 2.9.5
+Import-Package: com.fasterxml.jackson.core;version="[2.9,3)",com.faste
+ rxml.jackson.core.base;version="[2.9,3)",com.fasterxml.jackson.core.f
+ ormat;version="[2.9,3)",com.fasterxml.jackson.core.io;version="[2.9,3
+ )",com.fasterxml.jackson.core.json;version="[2.9,3)",com.fasterxml.ja
+ ckson.core.util;version="[2.9,3)",com.fasterxml.jackson.databind;vers
+ ion="[2.9,3)",com.fasterxml.jackson.dataformat.yaml;version="[2.9,3)"
+ ,com.fasterxml.jackson.dataformat.yaml.snakeyaml.error;version="[2.9,
+ 3)",org.yaml.snakeyaml;version="[1.18,2)",org.yaml.snakeyaml.emitter;
+ version="[1.18,2)",org.yaml.snakeyaml.error;version="[1.18,2)",org.ya
+ ml.snakeyaml.events;version="[1.18,2)",org.yaml.snakeyaml.nodes;versi
+ on="[1.18,2)",org.yaml.snakeyaml.parser;version="[1.18,2)",org.yaml.s
+ nakeyaml.reader;version="[1.18,2)",org.yaml.snakeyaml.resolver;versio
+ n="[1.18,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Specification-Title: Jackson-dataformat-YAML
+Specification-Vendor: FasterXML
+Specification-Version: 2.9.5
+Tool: Bnd-3.2.0.201605172007
+X-Compile-Source-JDK: 1.7
+X-Compile-Target-JDK: 1.7

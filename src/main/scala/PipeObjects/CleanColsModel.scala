@@ -32,9 +32,12 @@ class CleanColsModel(override val uid: String) extends Transformer with DefaultP
 
   //  Sets which column to maintain after apply model and clean the rest
   override def transform(df: Dataset[_]): DataFrame = {
-    df.select(
+
+    val df2 = df.select(
       (originalCols ++ outputCols).head,
       (originalCols ++ outputCols).tail: _*
     )
+
+    df2
   }
 }

@@ -1,14 +1,13 @@
 package Models
 
 //Import Project classes
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.{Pipeline, PipelineModel, PipelineStage}
 import org.apache.spark.ml.feature.{StandardScaler, StringIndexer, VectorAssembler}
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
-
+import com.semantix.aijusProd.VariablesYAML._
 // The most general level of abstraction for models. It contains all setters, getters and variables needed to apply a
 // model
 trait Model {
@@ -23,22 +22,21 @@ trait Model {
   var categoricalVariables: List[String] = _
   var dependentVariables: List[String] = _
   var independentVariable: String = _
-
   //Hyperparameters
-  var max_depth: Int = 1000
-  var mtry: Int = 1000
-  var ntrees: Int = 800
-  var maxBins: Int = 1024
-  var maxIter: Int = 5000
-  var minInfoGain: Double = 0.00001
-  var learn_rate: Double = 0.001
-  var kernel: String = "radial"
-  var family: String = "binomial"
-  var link: String = "Logit"
+  var max_depth: Int = config.hyperparameters.getOrElse("maxDepth", null).toInt
+  var mtry: Int = config.hyperparameters.getOrElse("mtry", null).toInt
+  var ntrees: Int = config.hyperparameters.getOrElse("ntrees", null).toInt
+  var maxBins: Int = config.hyperparameters.getOrElse("maxBins", null).toInt
+  var maxIter: Int = config.hyperparameters.getOrElse("maxIter", null).toInt
+  var minInfoGain: Double = config.hyperparameters.getOrElse("minInfoGain", null).toDouble
+  var learn_rate: Double = config.hyperparameters.getOrElse("learnRate", null).toDouble
+  var kernel: String = config.hyperparameters.getOrElse("kernel", null)
+  var family: String = config.hyperparameters.getOrElse("family", null)
+  var link: String = config.hyperparameters.getOrElse("link", null)
+
   var rawPredictionCol: String = "Votes"
   var probabilityVecCol: String = "probabilityVec"
   var probabilityCol: String = "probability"
-
   //Column names
   var outputCol = "output"
   var predictCol = "predictedOutput"

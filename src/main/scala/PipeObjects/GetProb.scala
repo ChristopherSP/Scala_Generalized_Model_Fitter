@@ -1,7 +1,6 @@
 package PipeObjects
 
 //Import Project classes
-import aijusProd.PosProcessing.getElement
 import PipeObjects.DescribeLabels._
 
 //Import Spark packages
@@ -11,6 +10,8 @@ import org.apache.spark.ml.util.{DefaultParamsWritable, Identifiable}
 import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.functions.{col, lit}
 import org.apache.spark.sql.types.StructType
+import com.semantix.aijusProd.VariablesYAML._
+import com.semantix.aijusProd.PosProcessing._
 
 //Gets the probability of a given label in a ml vector
 class GetProb(override val uid: String) extends Transformer with MyHasInputCol with MyHasOutputCol with

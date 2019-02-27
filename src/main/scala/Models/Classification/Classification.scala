@@ -1,9 +1,8 @@
 package Models.Classification
-
+import com.semantix.aijusProd.VariablesYAML._
 //Import Project classes
 import Models.Model
 import PipeObjects.{CleanColsModel, GetProb, LabelConverter}
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.PipelineStage

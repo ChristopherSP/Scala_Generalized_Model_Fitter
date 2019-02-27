@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/christopher/Documents/Juridico/Juribot/aijus_prod_v01/src/main/scala/aijusProd/MainStringMatch.scala:57:39: identifier expected but '.' found.[0m
-[0m[[0m[31merror[0m] [0m[0m        (ocupation, JaroWinklerMetric..compare(input, ocupation).getOrElse(Double).asInstanceOf[Double])[0m
-[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/christopher/Documents/Juridico/aijus-data-science/aijus_prod_v01/src/main/scala/com/semantix/aijusProd/MainIris.scala:88:11: numerical is already defined as value numerical[0m
+[0m[[0m[31merror[0m] [0m[0m      val numerical = numericalOriginal.map(name => name + inputedSuffix).toArray[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/christopher/Documents/Juridico/aijus-data-science/aijus_prod_v01/src/main/scala/com/semantix/aijusProd/MainIris.scala:89:11: categorical is already defined as value categorical[0m
+[0m[[0m[31merror[0m] [0m[0m      val categorical = categoricalOriginal.map(name => name + inputedSuffix).toArray[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

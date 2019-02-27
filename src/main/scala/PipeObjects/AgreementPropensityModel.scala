@@ -3,7 +3,6 @@ package PipeObjects
 //Import Project classes
 import Models.Classification.Classification
 import Models.ModelGenerator
-import aijusProd.Variables._
 
 //Import Spark packages
 import java.io.PrintWriter
@@ -17,7 +16,7 @@ import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.ml.util.{Identifiable, MLWritable, MLWriter}
 import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.types.StructType
-
+import com.semantix.aijusProd.VariablesYAML._
 //This Class construct and train a model that determines how much a person is prone to accept an agreement in a law
 // suit. It also applies the fitted model transforming a dataset and evaluates its performance.
 class AgreementPropensityModel(override val uid: String) extends Transformer with MLWritable{
@@ -41,7 +40,7 @@ class AgreementPropensityModel(override val uid: String) extends Transformer wit
   }
 
   def transform(df: Dataset[_]): DataFrame = {
-
+    println("####################\n\n####################\nInput model 4\n####################\n####################")
 //    Model Constructor
     val model = ModelGenerator.getMethod(method = methodMod4)
       .setDF(df.toDF())
@@ -76,7 +75,7 @@ class AgreementPropensityModel(override val uid: String) extends Transformer wit
 //    Gets the time that the code runned and generates a folder with the date in order to save a historic log of
 // models and performances.
     val date = Calendar.getInstance().getTime
-    val dateFormat = new SimpleDateFormat("YYYY-MM-dd")
+    val dateFormat = new SimpleDateFormat("YYYYMMddHHmmss")
     val dateFormated = dateFormat.format(date)
 
     Directory(outputPerformanceDir + dateFormated).createDirectory()
@@ -85,6 +84,10 @@ class AgreementPropensityModel(override val uid: String) extends Transformer wit
       write(finalJson)
       close()
     }
+
+//    output.repartition(265)
+    output.persist()
+    output.count()
     output
   }
   override def write: MLWriter = trainedModel.write

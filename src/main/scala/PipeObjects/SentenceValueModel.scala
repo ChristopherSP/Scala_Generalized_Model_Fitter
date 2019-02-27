@@ -2,7 +2,6 @@ package PipeObjects
 
 //Import Project classes
 import Models.ModelGenerator
-import aijusProd.Variables._
 
 //Import Java packages
 import java.io.PrintWriter
@@ -17,7 +16,7 @@ import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, Dataset}
 
 import scala.reflect.io.Directory
-
+import com.semantix.aijusProd.VariablesYAML._
 //This Class construct and train a model that determines how much a law suit will cost. It also applies the fitted
 // model transforming a dataset and evaluates its performance.
 class SentenceValueModel(override val uid: String) extends Transformer  with MLWritable with
@@ -42,6 +41,8 @@ class SentenceValueModel(override val uid: String) extends Transformer  with MLW
   }
 
   override def transform(df: Dataset[_]): DataFrame = {
+    println("####################\n\n####################\nInput model 5\n####################\n####################")
+
     //    Model Constructor
     val model = ModelGenerator.getMethod(method = methodMod5)
       .setDF(df.toDF())
@@ -50,7 +51,7 @@ class SentenceValueModel(override val uid: String) extends Transformer  with MLW
       .setIndependentVariable(independentVariableMod5 + inputedSuffix + scaledSuffix)
       .setPredictionColumn(outputMod5)
       .setConstants()
-      .setSets(independentVariableMod3, labelsRegression)
+      .setSets(independentVariableMod3, labelsSentenceModel)
       .setTransformers()
 
     //    Fitting the above model
@@ -73,7 +74,7 @@ class SentenceValueModel(override val uid: String) extends Transformer  with MLW
     //    Gets the time that the code runned and generates a folder with the date in order to save a historic log of
     // models and performances.
     val date = Calendar.getInstance().getTime
-    val dateFormat = new SimpleDateFormat("YYYY-MM-dd")
+    val dateFormat = new SimpleDateFormat("YYYYMMddHHmmss")
     val dateFormated = dateFormat.format(date)
 
     Directory(outputPerformanceDir + dateFormated).createDirectory()
@@ -84,6 +85,9 @@ class SentenceValueModel(override val uid: String) extends Transformer  with MLW
       close()
     }
 
+//    output.repartition(260)
+    output.persist()
+    output.count()
     output
   }
 

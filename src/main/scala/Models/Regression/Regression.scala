@@ -3,13 +3,12 @@ package Models.Regression
 //Import Project classes
 import Models.Model
 import PipeObjects.{CleanColsModel, GetFirstElementVector, Unscale}
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.PipelineStage
 import org.apache.spark.ml.feature.{StandardScaler, VectorAssembler}
 import org.apache.spark.sql.DataFrame
-
+import com.semantix.aijusProd.VariablesYAML._
 // Below model, this abstraction level contains all setters, getters and variables needed to define a regression model
 trait Regression extends Model{
 

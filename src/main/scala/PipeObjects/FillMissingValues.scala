@@ -1,7 +1,6 @@
 package PipeObjects
 
 //Import Project classes
-import aijusProd.Variables._
 
 //Import Spark packages
 import org.apache.spark.ml.Transformer
@@ -11,7 +10,7 @@ import org.apache.spark.ml.util.{DefaultParamsWritable, Identifiable}
 import org.apache.spark.sql.functions.{col, desc, lit, when}
 import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.types.StructType
-
+import com.semantix.aijusProd.VariablesYAML._
 //Fills NA values on the dataset. This is done by using the median of each numerical column and the most frequence
 // label of each categorical column
 class FillMissingValues(override val uid: String) extends Transformer with MyHasInputCol with MyHasOutputCol with
@@ -33,11 +32,11 @@ DefaultParamsWritable {
 //  Method for numerical columns
   def fillNumericMissingValues (df: DataFrame): DataFrame = {
 //    Get numerical columns names by type
-    val numerical = df.schema
-      .fields
-      .filter(field => field.dataType.toString.equals("DoubleType"))
-      .map(_.name.toString)
-
+//    val numerical = df.schema
+//      .fields
+//      .filter(field => field.dataType.toString.equals("DoubleType"))
+//      .map(_.name.toString)
+    val numerical = (numericalOriginal.toArray :+ independentVariableMod2 :+ independentVariableMod5).distinct
 //    Input median to NA values
     val imputer = new Imputer()
       .setInputCols(numerical)
@@ -52,9 +51,10 @@ DefaultParamsWritable {
 //    Get string columns names by type
     val dataTypeList = df.dtypes.toList
 
-    val stringColumnList = dataTypeList.filter(kind =>
-      kind._2.startsWith("Str"))
-      .map(kind => kind._1)
+    val stringColumnList = (categoricalOriginal :+ independentVariableMod3 :+ independentVariableMod4).distinct
+//    val stringColumnList = dataTypeList.filter(kind =>
+//      kind._2.startsWith("Str"))
+//      .map(kind => kind._1)
 
 //    Calculates the frequency of each label for each column and gets the most frequent one
     val frequencyList = stringColumnList.map(column =>
@@ -87,8 +87,12 @@ DefaultParamsWritable {
   }
 
   override def transform(df: Dataset[_]): DataFrame = {
+    println("####################\n\n####################\nEnter " +
+      "FillMissing\n####################\n####################")
     val dt1 = fillNumericMissingValues(df.toDF())
-
-    fillStringMissingValues(dt1)
+    val dt2 = fillStringMissingValues(dt1)
+    println("####################\n\n####################\nExit " +
+      "FillMissing\n####################\n####################")
+    dt2
   }
 }
