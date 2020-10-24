@@ -10,8 +10,8 @@ import org.apache.spark.ml.util.{DefaultParamsWritable, Identifiable}
 import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.functions.{col, lit}
 import org.apache.spark.sql.types.StructType
-import com.semantix.aijusProd.VariablesYAML._
-import com.semantix.aijusProd.PosProcessing._
+import com.autoML.VariablesYAML._
+import com.autoML.PosProcessing._
 
 //Gets the probability of a given label in a ml vector
 class GetProb(override val uid: String) extends Transformer with MyHasInputCol with MyHasOutputCol with

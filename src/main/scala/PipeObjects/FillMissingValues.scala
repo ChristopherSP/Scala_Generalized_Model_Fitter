@@ -10,7 +10,7 @@ import org.apache.spark.ml.util.{DefaultParamsWritable, Identifiable}
 import org.apache.spark.sql.functions.{col, desc, lit, when}
 import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.types.StructType
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 //Fills NA values on the dataset. This is done by using the median of each numerical column and the most frequence
 // label of each categorical column
 class FillMissingValues(override val uid: String) extends Transformer with MyHasInputCol with MyHasOutputCol with

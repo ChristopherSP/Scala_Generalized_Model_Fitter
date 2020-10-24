@@ -13,7 +13,7 @@ import org.apache.spark.sql.{DataFrame, Dataset}
 import org.apache.spark.sql.types.StructType
 
 import scala.reflect.io.Directory
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 class JudgmentPropensity(override val uid: String) extends Transformer with MLWritable {
   var trainedModel: PipelineModel = _
 

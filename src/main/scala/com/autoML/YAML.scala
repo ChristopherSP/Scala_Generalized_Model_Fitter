@@ -1,4 +1,4 @@
-package com.semantix.aijusProd
+package com.autoML
 
 import java.util.{List => JList, Map => JMap}
 import collection.JavaConversions._

@@ -1,4 +1,4 @@
-package com.semantix.aijusProd
+package com.autoML
 
 object Variables {
   //Paths

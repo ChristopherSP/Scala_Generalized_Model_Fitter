@@ -1,7 +1,7 @@
 //Prepare input data by doing some ETL operations
 //Somewhat specific to walmart poc data
 
-package com.semantix.aijusProd
+package com.autoML
 
 import org.apache.commons.lang3.StringUtils
 import org.apache.spark.SparkContext

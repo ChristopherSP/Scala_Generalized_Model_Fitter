@@ -9,7 +9,7 @@ import org.apache.spark.ml.util.{DefaultParamsReadable, DefaultParamsWritable, I
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, Dataset}
-import com.semantix.aijusProd.PosProcessing._
+import com.autoML.PosProcessing._
 //Gets the first element of a ml vector
 class GetFirstElementVector(override val uid: String) extends Transformer with MyHasInputCol with MyHasOutputCol with
 DefaultParamsWritable with DefaultParamsReadable[GetFirstElementVector] {

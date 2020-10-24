@@ -7,7 +7,7 @@ import org.apache.spark.ml.{Pipeline, PipelineModel, PipelineStage}
 import org.apache.spark.ml.feature.{StandardScaler, StringIndexer, VectorAssembler}
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 // The most general level of abstraction for models. It contains all setters, getters and variables needed to apply a
 // model
 trait Model {

@@ -1,6 +1,6 @@
 package PipeObjects
 
-//import aijusProd.VariablesYAML.idModel6
+//import VariablesYAML.idModel6
 import org.apache.spark.ml.{PipelineModel, PipelineStage, Transformer}
 import org.apache.spark.ml.fpm.FPGrowth
 import org.apache.spark.ml.param.ParamMap

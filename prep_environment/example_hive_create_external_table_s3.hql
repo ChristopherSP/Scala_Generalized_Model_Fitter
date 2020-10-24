@@ -103,4 +103,4 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
 LOCATION
-  's3a://aijus-databases/hive/'
+  's3a://databases/hive/'

@@ -4,7 +4,7 @@ package PipeObjects
 //Import Spark packages
 import org.apache.spark.ml.PipelineStage
 import org.apache.spark.ml.feature.{StandardScaler, StringIndexer, VectorAssembler}
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 //Deals with all preprocessing required to apply models
 class PreProcess(numerical: Array[String], categorical: Array[String]) {
 //  Vectorize numerical columns

@@ -1,9 +1,9 @@
-package com.semantix.aijusProd
+package com.autoML
 
 import java.io.FileReader
 
 object VariablesYAML {
-  val yamlPath: String = "/home/hadoop/aijusProd/confFiles/parameters.yml"
+  val yamlPath: String = "/home/hadoop/main/confFiles/parameters.yml"
   val reader = new FileReader(yamlPath)
   val mapper = new com.fasterxml.jackson.databind.ObjectMapper(new com.fasterxml.jackson.dataformat.yaml.YAMLFactory())
   val config: YAML = mapper.readValue(reader, classOf[YAML])

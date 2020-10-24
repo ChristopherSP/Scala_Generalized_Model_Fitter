@@ -1,4 +1,4 @@
-# Spark AIJUS Production
+# Spark AutoML
 
 This folder contains all files needed to start an environment on a running cluster.
 
@@ -10,20 +10,20 @@ To run the script one just need to execute the following command:
 
 > sh make_folders_send_files.sh arg1 arg2
 
-- arg1: Full path to the pem file used to make ssh and scp commands to the server, ex.: "~/.ssh/juribot.pem"
+- arg1: Full path to the pem file used to make ssh and scp commands to the server, ex.: "~/.ssh/token.pem"
 - arg2: Full server master node DNS, ex.: "hadoop@ec1-23-45-678-910.compute-1.amazonaws.com"
 
 This script gets it's on path (so it's dependent os the actual git sctructure) makes a ssh tunnel to the specified server, creates all directories, locally and on the hdfs, and transfer both the configuration file and the jar package via scp.
 
 In this folder there is some files with examples on how to create a partitioned external table on hive pointing to files stores in AWS S3; how to add the content to the same table; and how to run the spark job on using client mode.
 
-The code jar is stored under the folder: ~/aijusProd/jars and the configuration file is stored locally on server in ~/aijusProd/confFiles and on the hdfs /user/hadoop/aijusProd/confFiles
+The code jar is stored under the folder: ~/main/jars and the configuration file is stored locally on server in ~/main/confFiles and on the hdfs /user/hadoop/main/confFiles
 
 If the cluster is cloned using the previous **Cluster Chris** there is no need to create the table or add information to it.
 
 The image below is a macro representation of the code structure with the central classes, variables and functions.
 
-![Code UML](MacroSparkSchemaAijusProd.png)
+![Code UML](MacroSparkSchemaAutoML.png)
 
 ## Input Data
 

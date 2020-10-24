@@ -1,7 +1,7 @@
 //Statistical methods to clean and transform data
 //Pretty general
 
-package com.semantix.aijusProd
+package com.autoML
 
 import VariablesYAML._
 import org.apache.spark.SparkContext

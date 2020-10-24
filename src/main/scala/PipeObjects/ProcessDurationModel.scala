@@ -15,7 +15,7 @@ import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.ml.util._
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, Dataset}
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 //This Class construct and train a model that determines how long a law suit will last. It also applies the fitted
 // model transforming a dataset and evaluates its performance.
 class ProcessDurationModel(override val uid: String) extends Transformer with MLWritable with

@@ -5,7 +5,7 @@ package Models.Classification
 //Import Spark packages
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.ml.PipelineModel
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 // Constructs an object to apply logistic regression model for a classification problem
 class Logistic extends Classification {
 

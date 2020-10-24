@@ -1,4 +1,4 @@
-package com.semantix.aijusProd
+package com.autoML
 
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.udf

@@ -1,8 +1,8 @@
-name := "aijus_prod_v01"
+name := "spark_auto_ml"
 
 version := "0.1"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.4"
 
 libraryDependencies += "org.apache.spark" %% "spark-core" % "2.2.0" % "provided"
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.2.0" % "provided"

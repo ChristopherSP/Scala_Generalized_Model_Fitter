@@ -16,7 +16,7 @@ import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, Dataset}
 
 import scala.reflect.io.Directory
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 //This Class construct and train a model that determines how much a law suit will cost. It also applies the fitted
 // model transforming a dataset and evaluates its performance.
 class AgreementValueModel(override val uid: String) extends Transformer  with MLWritable with

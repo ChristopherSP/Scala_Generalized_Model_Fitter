@@ -1,7 +1,7 @@
 package Models.Classification
 
 //Import Project classes
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 //Import Spark packages
 import org.apache.spark.ml.classification.NaiveBayes
 import org.apache.spark.ml.PipelineModel

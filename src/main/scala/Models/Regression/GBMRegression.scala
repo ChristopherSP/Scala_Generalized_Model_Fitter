@@ -5,7 +5,7 @@ package Models.Regression
 //Import Spark packages
 import org.apache.spark.ml.regression.GBTRegressor
 import org.apache.spark.ml.PipelineModel
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 // Constructs an object to apply gradient boosting model for a regression problem
 class GBMRegression extends Regression {
 

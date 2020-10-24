@@ -1,6 +1,6 @@
 //package PipeObjects
 //
-//import aijusProd.Variables.{dependentScaledVecCol, dependentVecCol}
+//import Variables.{dependentScaledVecCol, dependentVecCol}
 //import org.apache.spark.ml.{Pipeline, PipelineStage, Transformer}
 //import org.apache.spark.ml.feature.{StandardScaler, StringIndexer, VectorAssembler}
 //import org.apache.spark.ml.param.ParamMap
@@ -8,8 +8,8 @@
 //import org.apache.spark.sql.{DataFrame, Dataset}
 //import org.apache.spark.sql.types.StructType
 //import org.apache.spark.sql.functions._
-//import aijusProd.Variables._
-//import aijusProd.PreProcessing.getColumnsByType
+//import Variables._
+//import PreProcessing.getColumnsByType
 //
 //class Scale(override val uid: String) extends Transformer with MyHasInputCol with MyHasOutputCol with
 //  DefaultParamsWritable {

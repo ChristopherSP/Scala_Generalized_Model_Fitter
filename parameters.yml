@@ -1,8 +1,8 @@
 ---
 filesPath:
-        input: "aijusProd/database/ETLtrabalhista.csv"
-        output: "aijusProd/output/prediction/output.csv"
-        outputPerformance: "aijusProd/output/performance/"
+        input: "./database/ETLtrabalhista.csv"
+        output: "./output/prediction/output.csv"
+        outputPerformance: "./output/performance/"
 
 filesInfo:
         type: csv

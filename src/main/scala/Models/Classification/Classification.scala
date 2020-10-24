@@ -1,5 +1,5 @@
 package Models.Classification
-import com.semantix.aijusProd.VariablesYAML._
+import com.autoML.VariablesYAML._
 //Import Project classes
 import Models.Model
 import PipeObjects.{CleanColsModel, GetProb, LabelConverter}

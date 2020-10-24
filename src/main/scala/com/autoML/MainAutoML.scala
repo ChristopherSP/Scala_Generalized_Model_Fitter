@@ -1,4 +1,4 @@
-package com.semantix.aijusProd
+package com.autoML
 
 //Import Project classes
 import PreProcessing._
@@ -24,13 +24,13 @@ import shapeless.syntax.std.tuple._
 import org.apache.log4j.Logger
 import org.apache.log4j.Level
 
-object MainAijus {
+object MainAutoML {
   //  Main Method
   def main (arg: Array[String]): Unit ={
     Logger.getLogger("org").setLevel(Level.ERROR)
     Logger.getLogger("akka").setLevel(Level.ERROR)
     //  Starts spark session
-    val conf = new SparkConf().setAppName("aijusProd01")
+    val conf = new SparkConf().setAppName("spark_auto_ml")
     //        .setMaster("yarn")
 
     val sc = SparkContext.getOrCreate(conf)
