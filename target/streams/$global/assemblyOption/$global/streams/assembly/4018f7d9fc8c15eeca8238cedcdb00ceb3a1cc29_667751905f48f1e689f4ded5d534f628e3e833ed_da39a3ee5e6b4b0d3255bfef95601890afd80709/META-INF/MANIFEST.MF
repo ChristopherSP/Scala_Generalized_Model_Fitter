@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: stringmetric-core
-Implementation-Version: 0.27.4
-Specification-Vendor: com.rockymadden.stringmetric
-Specification-Title: stringmetric-core
-Implementation-Vendor-Id: com.rockymadden.stringmetric
-Specification-Version: 0.27.4
-Implementation-Vendor: com.rockymadden.stringmetric
-
